@@ -1,0 +1,19 @@
+{
+  "name": "final-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "start": "nodemon app.js",
+  "author": "devinmgibson",
+  "license": "ISC",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "npm start"
+  },
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "nodemon": "^1.11.0",
+    "pg-promise": "^5.5.0"
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
+    <title></title>
+  </head>
+  <body class="body">
+    <% include ../includes/header.ejs %>
+    <% if (accepted == false) { %>
+      <div class="container" id="invalid-user">Incorrect Username or Password</div>
+    <% } %>
+    <div class="sign-in">
+      <div id="sign-in-title">Sign In:</div>
+      <form id="sign-in-form" action="game.ejs" method="post">
+        <input class="form-item" type="text" placeholder="Username" name="username"/>
+        <input class="form-item" type="text" placeholder="Password" name="password"/>
+        <input id="start-game" type="submit" value="Start"/>
+      </form>
+      <img id="tic-tac-toe-img" src="../images/tic-tac-toe.png">
+    </div>
+  </body>
+</html>
