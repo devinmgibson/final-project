@@ -9,6 +9,7 @@ var username;
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
+app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
@@ -70,6 +71,6 @@ app.post('/register.ejs', function(req, res, next){
   });
 });
 
-app.listen(3000, function(){
+app.listen(app.get('port'), function(){
   console.log("The server is running");
 });
