@@ -268,7 +268,7 @@
     text-align: center;
     font-weight: bold;
 }
-#user-submit-score {
+.user-submit-score {
   text-align: center;
   background: none;
   border: none;

@@ -85,7 +85,7 @@ function displayQuestion(boardElement, questions) {
 
 function incrementScore(){
   score += 50;
-  document.getElementById('score').innerHTML = score;
+  document.getElementById('score').value = score;
 }
 
 function hideQuestion(){

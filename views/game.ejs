@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
     <title></title>
   </head>
   <body class="body">
@@ -51,8 +52,8 @@
     <div class="container" id="score-board">
       <form action="score-submit.ejs" method="post">
         <div style="font-size: 14pt;">Score:</div>
-        <output style="font-size: 14pt;" id="score" name="score">0</output> 
-        <input type="text" id='user-submit-score' name="username" value="<%= user %>" />
+        <input style="font-size: 14pt;" class="user-submit-score" id="score" name="score"  readonly />
+        <input type="text" class='user-submit-score' name="id" value="<%= user.id %>"  readonly/>
         <input class="game-btn-sm" type="submit" value="Submit Score" />
       </form>
     </div>

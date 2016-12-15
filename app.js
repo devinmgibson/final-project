@@ -24,7 +24,7 @@ app.post('/game.ejs', function(req, res, next){
   db.one('SELECT * FROM scores WHERE username = $1', req.body.username)
   .then(function(data){
     if(data.password == req.body.password) {
-      res.render('game', {user: req.body.username});
+      res.render('game', {user: data});
       username = req.body.username;
     }
   })
@@ -34,15 +34,15 @@ app.post('/game.ejs', function(req, res, next){
 });
 
 app.post('/score-submit.ejs', function(req, res, next) {
-  console.log(req.body.username + " " + req.body.score);
-    /*db.none('UPDATE scores SET score=$1 WHERE username=$2',
-          [req.body.score, req.body.username])
-      .then(function () {
-        res.redirect('game', {user: req.body.username});
+  console.log(req.body.id + " " + req.body.score);
+    db.none('UPDATE scores SET score=$1 WHERE id=$2',
+          [req.body.score, req.body.id])
+      .then(function (data) {
+        res.redirect('/');
       })
       .catch(function (err) {
         return next(err);
-      });*/
+      });
 });
 
 //player must register to play
