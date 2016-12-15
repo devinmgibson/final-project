@@ -1,5 +1,6 @@
 .body{
   background: grey;
+  overflow: hidden;
 }
 .header {
   background: rgba(0, 0, 0, 0.50);
@@ -11,7 +12,10 @@
   text-align: center;
   padding: 7px;
   margin-bottom: 25px;
+  overflow: hidden;
 }
+
+/*index.ejs  and register styles*/
 #register-btn {
   background: red;
   color: white;
@@ -80,4 +84,192 @@
   display: block;
   width: 250px;
   margin: 12px auto;
+}
+
+/* game.ejs styles*/
+#button-box {
+  display: block;
+  width: 350px;
+  margin: 15px auto;
+  overflow: hidden;
+}
+.game-btn {
+  display: block;
+  height: 50px;
+  width: 150px;
+  background: red;
+  color: white;
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14pt;
+  overflow: hidden;
+}
+.game-btn:hover {
+  background: #a80000;
+}
+.game-btn-sm {
+  display: block;
+  height: 40px;
+  width: 150px;
+  margin: 0px auto;
+  padding: 5px;
+  background: red;
+  color: white;
+  border: none;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 14pt;
+  overflow: hidden;
+}
+.game-btn-sm:hover {
+  background: #a80000;
+}
+#new-game {
+  margin-right: 20px;
+  float: left;
+
+}
+#high-scores {
+  float: left;
+
+}
+#game-board {
+  display: block;
+  height: 300px;
+  width: 300px;
+  margin: 25px auto;
+}
+.game-space {
+  display: block;
+  float: left;
+  height: 100px;
+  width: 100px;
+  background: #dbdbdb;
+}
+#space-one {
+  border-right: solid 5px black;
+  border-bottom: solid 5px black;
+  text-align: center;
+  vertical-align: center;
+  line-height: 100px;
+  font-size: 36pt;
+}
+#space-two {
+  border-right: solid 5px black;
+  border-bottom: solid 5px black;
+  text-align: center;
+  vertical-align: center;
+  line-height: 100px;
+  font-size: 36pt;
+}
+#space-three {
+  border-bottom: solid 5px black;
+  text-align: center;
+  vertical-align: center;
+  line-height: 100px;
+  font-size: 36pt;
+}
+#space-four {
+  border-right: solid 5px black;
+  border-bottom: solid 5px black;
+  text-align: center;
+  vertical-align: center;
+  line-height: 100px;
+  font-size: 36pt;
+}
+#space-five {
+  border-right: solid 5px black;
+  border-bottom: solid 5px black;
+  text-align: center;
+  vertical-align: center;
+  line-height: 100px;
+  font-size: 36pt;
+}
+#space-six {
+  border-bottom: solid 5px black;
+  text-align: center;
+  vertical-align: center;
+  line-height: 100px;
+  font-size: 36pt;
+}
+#space-seven {
+  border-right: solid 5px black;
+  text-align: center;
+  vertical-align: center;
+  line-height: 100px;
+  font-size: 36pt;
+}
+#space-eight {
+  border-right: solid 5px black;
+  text-align: center;
+  vertical-align: center;
+  line-height: 100px;
+  font-size: 36pt;
+}
+#space-nine {
+  text-align: center;
+  vertical-align: center;
+  line-height: 100px;
+  font-size: 36pt;
+}
+#space-one:hover {
+  background: #4d4d4d;
+}
+#space-two:hover {
+  background: #4d4d4d;
+}
+#space-three:hover {
+  background: #4d4d4d;
+}
+#space-four:hover {
+  background: #4d4d4d;
+}
+#space-five:hover {
+  background: #4d4d4d;
+}
+#space-six:hover {
+  background: #4d4d4d;
+}
+#space-seven:hover {
+  background: #4d4d4d;
+}
+#space-eight:hover {
+  background: #4d4d4d;
+}
+#space-nine:hover {
+  background: #4d4d4d;
+}
+#score-board {
+  display: block;
+  height: 300px;
+  width: 300px;
+  margin: 25px auto;
+  text-align: center;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    text-align: center;
+    font-weight: bold;
+}
+#user-submit-score {
+  text-align: center;
+  background: none;
+  border: none;
 }

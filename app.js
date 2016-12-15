@@ -5,31 +5,47 @@ var pgp = require('pg-promise')();
 var app = express();
 var db = pgp('postgres://postgres:iheartcode@localhost:5432/high-scores');
 
+var username;
+
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+//home page
 app.get('/', function(req, res){
   res.render('index', {accepted: true});
 });
 
+//game page
 app.post('/game.ejs', function(req, res, next){
   console.log(req.body.username + " " + req.body.password);
   db.one('SELECT * FROM scores WHERE username = $1', req.body.username)
   .then(function(data){
     if(data.password == req.body.password) {
       res.render('game', {user: req.body.username});
-    } else {
-      res.render('index', {accepted: false});
+      username = req.body.username;
     }
   })
   .catch(function(err) {
-    return next(err);
+    res.render('index', {accepted: false});
   });
 });
 
+app.post('/score-submit.ejs', function(req, res, next) {
+  console.log(req.body.username + " " + req.body.score);
+    /*db.none('UPDATE scores SET score=$1 WHERE username=$2',
+          [req.body.score, req.body.username])
+      .then(function () {
+        res.redirect('game', {user: req.body.username});
+      })
+      .catch(function (err) {
+        return next(err);
+      });*/
+});
+
+//player must register to play
 app.get('/register', function(req, res){
   res.render('register', {accepted: true});
 });
