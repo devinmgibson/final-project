@@ -77,7 +77,8 @@ app.post('/register.ejs', function(req, res, next){
   });
 });
 
+var port = process.env.PORT || 5000;
 // listen on port 3000
-app.listen(process.env.PORT, function () {
+app.listen(port, function () {
   console.log('Express app listening on port 3000');
 });
