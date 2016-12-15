@@ -9,10 +9,16 @@ var username;
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
-app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  var err = new Error('File Not Found');
+  err.status = 404;
+  next(err);
+});
 
 //home page
 app.get('/', function(req, res){
@@ -71,6 +77,7 @@ app.post('/register.ejs', function(req, res, next){
   });
 });
 
-app.listen(app.get('port'), function(){
-  console.log("The server is running");
+// listen on port 3000
+app.listen(process.env.PORT, function () {
+  console.log('Express app listening on port 3000');
 });
