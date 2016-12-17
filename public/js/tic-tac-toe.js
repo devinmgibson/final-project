@@ -24,6 +24,7 @@ function playGame() {
   console.log(player);
 
   alert("Game Started");
+  document.getElementById('score').value = 0;
   clearBoard();
   while(playerTurn){
     pickSpace();
@@ -116,7 +117,7 @@ function changeBoard(answer, boardElement){
     boardElement.onmouseout = function() {
      this.style.backgroundColor = 'green';
    }
-  } else if (answer == 1){
+  } else if (answer == 1) {
     boardElement.style.background = "red";
     boardElement.style.color = "#330000";
     boardElement.innerHTML = "O";
@@ -130,12 +131,13 @@ function changeBoard(answer, boardElement){
     boardElement.style.background = "#dbdbdb";
     boardElement.innerHTML = " ";
     boardElement.onmouseover = function() {
-   this.style.backgroundColor='#4d4d4d';
+      this.style.backgroundColor='#4d4d4d';
+    }
     boardElement.onmouseout = function() {
      this.style.backgroundColor = '#dbdbdb';
-   }
-}
+    }
   }
+
 }
 
 function getAnswer(boardElement, answers) {
@@ -144,11 +146,13 @@ function getAnswer(boardElement, answers) {
     if (checkAnswer.localeCompare(answers) == 0){
       incrementScore();
       alert("Correct!");
+      document.getElementById('answer').value = '';
       hideQuestion();
       changeBoard(0, boardElement);
       console.log(boardElement);
     }else{
       alert("Incorrect!");
+      document.getElementById('answer').value = '';
       hideQuestion();
       changeBoard(1, boardElement);
     }
