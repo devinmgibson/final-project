@@ -1,24 +1,19 @@
+require('dotenv').load();
 var express = require('express');
+var engine = require('ejs-mate');
 var bodyParser = require('body-parser');
 var pgp = require('pg-promise')();
 
 var app = express();
-var db = pgp('postgres://postgres:iheartcode@localhost:5432/high-scores');
+var db = pgp(process.env.DATABASE_URL);
 
-var username;
+app.engine('ejs', engine);
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('File Not Found');
-  err.status = 404;
-  next(err);
-});
 
 //home page
 app.get('/', function(req, res){
@@ -77,7 +72,7 @@ app.post('/register.ejs', function(req, res, next){
   });
 });
 
-var port = process.env.PORT || 5000;
+var port = process.env.PORT || 3000;
 // listen on port 3000
 app.listen(port, function () {
   console.log('Express app listening on port 3000');
