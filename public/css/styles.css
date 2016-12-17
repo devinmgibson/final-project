@@ -273,3 +273,19 @@
   background: none;
   border: none;
 }
+
+/* high-scores.ejs styles */
+#high-scores-table {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14pt;
+  display: block;
+  width: 300px;
+  background: #dbdbdb;
+  padding-bottom: 25px;
+  /* center on screen */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

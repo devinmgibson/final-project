@@ -40,7 +40,7 @@ app.post('/score-submit.ejs', function(req, res, next) {
     db.none('UPDATE scores SET score=$1 WHERE id=$2',
           [req.body.score, req.body.id])
       .then(function (data) {
-        res.redirect('/');
+        res.redirect('high-scores');
       })
       .catch(function (err) {
         return next(err);
@@ -70,6 +70,16 @@ app.post('/register.ejs', function(req, res, next){
           return next(err);
       });
   });
+});
+
+app.get('/high-scores', function (req, res, next) {
+  db.any('SELECT * FROM scores')
+    .then(function(data){
+      return res.render('high-scores', {data: data});
+  })
+  .catch(function(err){
+    return next(err);
+  })
 });
 
 var port = process.env.PORT || 3000;

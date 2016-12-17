@@ -9,6 +9,19 @@
 
     <title></title>
   </head>
-  <body class="body">
+  <body class="body" onload="highScores(<%= data %>)">
+    <% include ../includes/high-score-header.ejs %>
+    <div class='container' id="high-scores-table">
+      <h1>High Scores</h1>
+      <div>
+        <ol>
+          <% for(var i = 1; i <= data.length; i++) { %>
+            <% if(data[data.length - i].score > 0) { %>
+              <li><%= data[data.length - i].username %>: <%= data[data.length - i].score %></li>
+            <% } %>
+          <% } %>
+        </ol>
+      </div>
+    </div>
   </body>
 </html>
