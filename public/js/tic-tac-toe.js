@@ -24,7 +24,8 @@ function playGame() {
   console.log(player);
 
   alert("Game Started");
-  document.getElementById('score').value = 0;
+  score = 0;
+  document.getElementById('score').value = score;
   clearBoard();
   while(playerTurn){
     pickSpace();
