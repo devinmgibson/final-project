@@ -24,6 +24,7 @@ function playGame() {
   console.log(player);
 
   alert("Game Started");
+  clearBoard();
   while(playerTurn){
     pickSpace();
     checkForWin();
@@ -92,16 +93,48 @@ function hideQuestion(){
     modal.style.display = "none";
 }
 
+function clearBoard() {
+  changeBoard(3, topRowOne);
+  changeBoard(3, topRowTwo);
+  changeBoard(3, topRowThree);
+  changeBoard(3, midRowOne);
+  changeBoard(3, midRowTwo);
+  changeBoard(3, midRowThree);
+  changeBoard(3, btmRowOne);
+  changeBoard(3, btmRowTwo);
+  changeBoard(3, btmRowThree);
+}
+
 function changeBoard(answer, boardElement){
   if(answer == 0) {
     boardElement.style.background = "green";
     boardElement.style.color = "#003300";
     boardElement.innerHTML = "X";
-
-  } else {
+    boardElement.onmouseover = function() {
+      this.style.backgroundColor='green';
+    }
+    boardElement.onmouseout = function() {
+     this.style.backgroundColor = 'green';
+   }
+  } else if (answer == 1){
     boardElement.style.background = "red";
     boardElement.style.color = "#330000";
     boardElement.innerHTML = "O";
+    boardElement.onmouseover = function() {
+      this.style.backgroundColor='red';
+    }
+    boardElement.onmouseout = function() {
+     this.style.backgroundColor = 'red';
+    }
+  } else {
+    boardElement.style.background = "#dbdbdb";
+    boardElement.innerHTML = " ";
+    boardElement.onmouseover = function() {
+   this.style.backgroundColor='#4d4d4d';
+    boardElement.onmouseout = function() {
+     this.style.backgroundColor = '#dbdbdb';
+   }
+}
   }
 }
 
